@@ -1,0 +1,44 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="/style.css" rel="stylesheet"/>
+    <title>Quotes</title>
+</head>
+<body>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <p class="display-3 text-center">Edit a Buffalo</p>
+    <form action="/submit/edit/<%= bison.id %>" method="post" class="w-25 mx-auto mt-5">
+        <div class="mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Name</span>
+                </div>
+                <input type="text" name="name" class="form-control" placeholder="<%= bison.name %>">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Details</span>
+                </div>
+                <textarea type="text" name="details" class="form-control" placeholder="<%= bison.details %>"></textarea>
+            </div>
+        </div>
+        <div class="mt-4">
+            <input type="submit" class="btn btn-success" value="Edit">
+            <a href="/" class="btn btn-primary ml-3">Go Back</a>
+        </div>
+        <img style="margin-top:150px" src="/images/buffaloIcon1.png" alt="Buffalo" width="140" height="140">
+    </form>
+    <div class="w-25 mx-auto mt-4">
+        <% JSON.stringify(messages) %>
+        <% if(messages.registration) { %>
+            <% for (var x of messages.registration) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
